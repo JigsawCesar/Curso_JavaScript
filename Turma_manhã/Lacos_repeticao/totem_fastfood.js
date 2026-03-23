@@ -11,12 +11,12 @@ let cardapio = [
 ];
 
 do {
-    console.log(`\n----------- Cardápio -------------\n==================================
+    console.log(`\n----------- Cardápio -------------\n =================================
 | [1] - 🍔 Lanche       - R$${cardapio[0].preco.toFixed(2)} |
 | [2] - 🥤 Refrigerante - R$${cardapio[1].preco.toFixed(2)}  |
 | [3] - 🍟 Batata Frita - R$${cardapio[2].preco.toFixed(2)} |
 | [4] - 🍧 Sorvete      - R$${cardapio[3].preco.toFixed(2)}  |
-==================================`);
+ =================================`);
     
     continuar = prompt(`Deseja adicionar mais algum item? (sim/nao) `).toLowerCase();
     if (continuar === "sim") {
