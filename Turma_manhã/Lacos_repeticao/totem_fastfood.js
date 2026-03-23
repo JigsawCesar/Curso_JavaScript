@@ -20,26 +20,44 @@ do {
     
     continuar = prompt(`Deseja adicionar mais algum item? (sim/nao) `).toLowerCase();
     if (continuar === "sim") {
+        
         let escolha = parseInt(prompt(`Digite o número do item desejado: `));
-        if (escolha === 1 ) {
-            valorTotal += cardapio[0].preco;
-            itemEscolhido.push(cardapio[0].nome);
-        }else if (escolha === 2) {
-            valorTotal += cardapio[1].preco;
-            itemEscolhido.push(cardapio[1].nome);
-        }else if (escolha === 3) {
-            valorTotal += cardapio[2].preco;
-            itemEscolhido.push(cardapio[2].nome);
-        }else if (escolha === 4) {
-            valorTotal += cardapio[3].preco;
-            itemEscolhido.push(cardapio[3].nome);
-        }else {
-            console.log(`\n😅 Opção inválida, tente novamente!\n`);
+        
+        switch (escolha) {
+            case 1:
+
+                valorTotal += cardapio[0].preco;
+                itemEscolhido.push(cardapio[0].nome);
+                break;
+                
+            case 2:
+
+                valorTotal += cardapio[1].preco;
+                itemEscolhido.push(cardapio[1].nome);
+                break;
+            
+            case 3:
+
+                valorTotal += cardapio[2].preco;
+                itemEscolhido.push(cardapio[2].nome);
+                break;
+
+            case 4:
+
+                valorTotal += cardapio[3].preco;
+                itemEscolhido.push(cardapio[3].nome);
+                break;
+
+            default:
+
+                console.log(`\n😅 Opção inválida, tente novamente!\n`);
+                break;
         }
+        
     }
 
 } while (continuar === "sim");
 
-console.log(`\n---- Pedidod finalizado! ----
+console.log(`\n------ Pedido finalizado! ------
 Itens escolhidos: ${itemEscolhido.join(", ")}
 O valor total a ser pago: R$${valorTotal.toFixed(2)}`);
