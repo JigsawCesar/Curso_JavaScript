@@ -6,10 +6,10 @@ let senhaDigitada = 0;
 const validador_senha = (senhaDigitada) => {
 
     do {
-        senhaDigitada = parseInt(prompt(`Digite a senha de acesso ao cofre: `));
+        senhaDigitada = parseInt(prompt(`Digite a senha de acesso: `));
     
         if (senhaDigitada != senha) {
-            console.log(`- Acesso negado: Senha incorreta!\n\nDigite a senha novamente:`);    
+            console.log(`\n- Acesso negado: Senha incorreta!\n\n========= Tente novamente =========`);    
         }
     
 
