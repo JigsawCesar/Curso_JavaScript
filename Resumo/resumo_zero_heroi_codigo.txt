@@ -1,4 +1,4 @@
------------------------------------LionsDev | Turma da Noite 2026-----------------------------------
+----------------------------------- LionsDev | Turma da Noite 2026 -----------------------------------
 
 Do 0 ao Heroi do Código:
 
@@ -814,5 +814,1163 @@ const impar = numeroImpar === 0
 console.log(impar)
 
 Resultado: false
+
 Nesse caso:
-nume
+
+numeroImpar === 0 retorna false
+Logo, sabemos que o número é ímpar
+
+7. Consolidação dos Conceitos
+
+== compara apenas valores.
+=== compara valor e tipo (boa prática).
+!= verifica se valores são diferentes.
+&& exige que todas as condições sejam verdadeiras.
+|| exige que ao menos uma condição seja verdadeira.
+! inverte o valor lógico.
+% retorna o resto da divisão.
+Comparações sempre retornam boolean (true ou false).
+Operadores lógicos são fundamentais para validações e estruturas condicionais.
+Aula 6
+Exercício início da aula:
+
+// EXERCÍCIO 3:
+// 1. Crie duas variáveis:
+//  - estaChovendo com valor false
+//  - estaNublado com valor true
+// 2. Crie uma variável chamada levarGuardaChuva que será true quando:
+//  - estiver chovendo (estaChovendo === true)//  OU
+//  - estiver nublado (estaNublado === true)
+// 3. Mostre o resultado no console com console.log(levarGuardaChuva).
+// EXERCÍCIO 2:
+// 1. Crie duas variáveis:
+//  - nota1 com valor 7
+//  - nota2 com valor 8
+// 2. Crie uma variável chamada aprovado que será true quando:
+//  - nota1 for maior ou igual a 6
+//  E
+//  - nota2 for maior ou igual a 6
+// 3. Imprima o resultado no console com console.log(aprovado).
+// Dica: use os operadores de comparação >, <, >=, <= e operadores lógicos.
+
+
+Resumo:
+
+Nesta aula foram aprofundadas as estruturas condicionais em JavaScript, partindo da revisão de operadores lógicos (&& e ||) aplicados a situações práticas como aprovação de aluno e decisão de levar guarda-chuva. Em seguida, foi introduzida a estrutura if, responsável por executar um bloco de código apenas quando uma condição é verdadeira, e a estrutura if...else, que permite tratar tanto o caso verdadeiro quanto o falso. Por meio de exemplos como verificação de maioridade, saudação baseada no horário, análise de saldo para compra e identificação de número positivo ou negativo, foi consolidado o entendimento de que condicionais são responsáveis pela tomada de decisão nos programas, sendo fundamentais para implementar regras de negócio e controlar o fluxo de execução do código.
+
+
+Estruturas Condicionais em JavaScript (if e else)
+
+
+1. Recapitulação: Operadores Lógicos
+
+Antes de iniciar condicionais, foi feita a revisão de operadores lógicos, pois eles são a base para tomada de decisão em programas.
+
+Exercício 1 – Verificando aprovação
+
+const nota1 = 7
+const nota2 = 9
+
+const aprovado = nota1 >= 6 && nota2 >= 6
+
+console.log("Exercício 1")
+console.log("O aluno está aprovado?", aprovado)
+
+Explicação detalhada
+
+nota1 >= 6 verifica se a primeira nota é maior ou igual a 6.
+nota2 >= 6 verifica se a segunda nota é maior ou igual a 6.
+O operador && exige que as duas condições sejam verdadeiras.
+Se ambas forem verdadeiras, aprovado será true.
+Caso uma delas seja falsa, aprovado será false.
+Esse é um exemplo clássico de regra de negócio: para ser aprovado, o aluno precisa atingir a nota mínima em ambas as avaliações.
+
+
+Exercício 2 – Decisão com operador OR
+
+const estaChovendo = false
+const estaNublado = true
+
+const levarGuardaChuva = estaChovendo === true || estaNublado === true
+
+console.log("\nExercício 2")
+console.log("Devo levar guarda-chuva?", levarGuardaChuva)
+
+Explicação detalhada
+
+estaChovendo === true verifica se está chovendo.
+estaNublado === true verifica se está nublado.
+O operador || (OR) exige que apenas uma das condições seja verdadeira.
+Se qualquer uma for verdadeira, o resultado será true.
+Aqui aprendemos que o operador OR é utilizado quando basta uma condição ser atendida para executar uma ação.
+
+
+2. Estruturas Condicionais
+
+Condicionais permitem que o programa tome decisões.
+
+Elas seguem a lógica:
+
+Se (condição for verdadeira) → execute um bloco de código
+Senão → execute outro bloco
+
+
+3. Estrutura if
+
+A estrutura básica é:
+
+if (condicao) {
+
+   // bloco executado se a condição for verdadeira
+
+}
+
+O código dentro das chaves {} só será executado se a condição for verdadeira.
+
+
+Exemplo 1 – Maior de idade
+
+let idade = 20
+
+if (idade >= 18){
+  console.log("Você é maior de idade!\n")
+}
+
+Explicação detalhada
+
+A variável idade armazena o valor 20.
+A condição idade >= 18 verifica se a pessoa tem 18 anos ou mais.
+Se for verdadeira, o console exibirá a mensagem.
+O \n adiciona uma quebra de linha no terminal.
+Se a idade fosse menor que 18, nada seria exibido, pois não existe um else.
+
+
+4. Estrutura if e else
+
+Quando queremos tratar tanto o caso verdadeiro quanto o falso, usamos else.
+
+Estrutura:
+
+if (condicao) {
+  // executa se for verdadeira
+} else {
+  // executa se for falsa
+}
+
+
+Exemplo 2 – Saudação por horário
+
+let hora = 14;
+
+if (hora < 12) {
+  console.log("Bom dia");
+} else {
+  console.log("Boa tarde!");
+}
+
+Explicação detalhada
+
+hora < 12 verifica se o horário é antes do meio-dia.
+Se for verdadeiro, imprime "Bom dia".
+Caso contrário, executa o bloco do else.
+Como 14 é maior que 12, o resultado será "Boa tarde!".
+Aqui o programa toma uma decisão com base em uma comparação numérica.
+
+
+Exemplo 3 – Verificação de saldo
+
+const saldoEmConta = 101
+const valorArroz = 101
+
+if(saldoEmConta >= valorArroz) {
+  console.log("Você consegue comprar!");
+} else{
+  console.log("Saldo insuficiente")
+}
+
+Explicação detalhada
+
+saldoEmConta >= valorArroz verifica se há dinheiro suficiente.
+Se o saldo for maior ou igual ao valor do produto, a compra é possível.
+Caso contrário, o programa informa que o saldo é insuficiente.
+Esse tipo de lógica é extremamente comum em sistemas bancários, e-commerces e aplicações financeiras.
+
+
+5. Exercício – Número Positivo ou Negativo
+
+Problema:
+Criar um programa que receba um número e diga se ele é positivo ou negativo.
+
+const numero_comparacao = 0
+const numero = -10
+
+if(numero > numero_comparacao) {
+  console.log("Este número é positivo!");
+} else {
+  console.log("Este número é negativo");
+}
+
+Explicação detalhada
+
+numero_comparacao foi definido como 0 para representar o ponto de referência.
+Se o número for maior que 0 → é positivo.
+Caso contrário → é negativo.
+Como numero vale -10, a condição numero > 0 é falsa, então o programa imprime que o número é negativo.
+
+Observação importante:
+Neste exemplo, o número 0 seria considerado negativo, pois não há tratamento específico para ele. Uma melhoria seria incluir uma terceira condição para identificar números neutros.
+
+
+6. Conceitos Fundamentais Consolidados
+
+Condicionais permitem que programas tomem decisões.
+if executa código apenas se a condição for verdadeira.
+else executa código quando a condição do if é falsa.
+Operadores lógicos (&&, ||) podem ser usados dentro de condicionais.
+Toda condição deve resultar em um valor booleano.
+Condicionais são a base para criação de regras de negócio em qualquer sistema.
+//! Exercício1
+
+//! Crie um programa que receba um número e diga
+
+//! se ele é positivo ou negativo
+
+
+//! Forma 1
+
+const numero_comparacao = 0
+
+const numero = 100
+
+
+if(numero > numero_comparacao) {
+
+   console.log("Este número é positivo!");
+
+} else {
+
+   console.log("Este número é negativo!");
+
+}
+
+
+//! Resultado = "Este número é positivo!"
+
+
+//! Forma 2
+
+const numero1 = -100
+
+
+if(numero1 > 0) {
+
+   console.log("Este número é positivo!");
+
+} else {
+
+   console.log("Este número é negativo!");
+
+}
+
+//! Resultado = "Este número é negativo!"
+
+
+//! Exercício 2
+
+//! Crie um programa para definir se o número é par ou impar!
+
+
+numero3 = 12
+
+parImpar = numero3 % 2
+
+
+if (parImpar === 0) {
+
+   console.log("\nEste número é par!");
+
+} else {
+
+   console.log("\nEste número é impar!")
+
+}
+
+
+//! Exercício 3
+
+
+let idade = 18
+
+const temCarteira = true
+
+
+if(idade >= 18 && temCarteira === true){
+
+   console.log("\nVocê pode dirigir!")
+
+} else {
+
+   console.log("\nVocê não pode dirigir!")
+
+}
+
+
+//! Exercício 4
+
+
+const idade2 = 18
+
+const comResponsaveis = false
+
+
+if (idade2 >=18 || comResponsaveis === true){
+
+   console.log("\nVocê pode entrar na festa!")
+
+} else{
+
+   console.log("\nVocê não pode entrar na festa!")
+
+}
+
+
+//! Exercício 5
+
+
+const logado = false
+
+
+if(!logado){
+
+   console.log("Acesso Negado");
+
+}else{
+
+   console.log("\nAcesso permitido!");
+
+}
+
+
+//! Exercício 6
+
+//! Faça um programa que verifique se um aluno está aprovado.
+
+//! Ele será aprovado se a nota for maior ou igual
+
+//! A 6 e a frequẽncia for maior ou igual a 75%
+
+
+const nota = 7
+
+const freq = 60
+
+
+if(nota >= 6 && freq >= 75){
+
+   console.log("\nVocê está aprovado!");
+
+} else{
+
+   console.log("\nInfelizmente você não foi aprovado!")
+
+}
+
+
+Aula 7
+
+Resumo da Aula (1 parágrafo)
+
+A aula abordou o uso de operadores lógicos em estruturas condicionais, especialmente o operador &&, permitindo verificar múltiplas condições ao mesmo tempo em um programa. Foram realizados exercícios práticos envolvendo verificação de intervalos numéricos, validação de compra de produtos com base em estoque e saldo, e análise de elegibilidade para votação considerando idade e posse de título eleitoral. Também foi introduzido o conceito de entrada e saída de dados no terminal utilizando o módulo readline do Node.js, permitindo que o programa receba informações digitadas pelo usuário. Ao final da aula, o professor iniciou uma introdução ao conceito de Arrays, explicando que eles são estruturas usadas para armazenar múltiplos valores dentro de uma única variável.
+
+Operadores Lógicos e Entrada de Dados pelo Terminal
+
+Operadores Lógicos em Condicionais
+
+Nesta aula foram trabalhados operadores lógicos em estruturas condicionais (if), permitindo que um programa avalie mais de uma condição ao mesmo tempo.
+
+Os principais operadores utilizados foram:
+
+Operador
+
+Significado
+
+Funcionamento
+
+&&
+
+E (AND)
+
+Todas as condições precisam ser verdadeiras
+
+`
+
+
+`
+
+O operador && foi o mais utilizado na aula, permitindo verificar duas regras ao mesmo tempo dentro de um if.
+
+
+Exercício 4 — Verificar se um número está dentro de um intervalo
+
+Objetivo
+
+Criar um programa que verifique se um número está entre 10 e 50.
+
+Código
+
+const num4 = 50
+
+
+console.log("O seu número é ", num4)
+
+
+if(num4 > 10 && num4 < 50){
+
+   console.log("O seu número está dentro do intervalo selecionado");
+
+} else{
+
+   console.log("O seu número selecionado NÃO está dentro do intervalo selecionado");
+
+}
+
+Explicação linha por linha
+
+const num4 = 50
+
+Cria uma variável constante chamada num4 que armazena o número que será analisado.
+
+console.log("O seu número é ", num4)
+
+Exibe no console o número informado.
+
+if(num4 > 10 && num4 < 50){
+
+Aqui ocorre a verificação das duas condições:
+
+num4 > 10 → verifica se o número é maior que 10
+num4 < 50 → verifica se o número é menor que 50
+O operador && exige que as duas condições sejam verdadeiras.
+
+console.log("O seu número está dentro do intervalo selecionado");
+
+Caso as duas condições sejam verdadeiras, o programa informa que o número está dentro do intervalo.
+
+} else{
+
+Caso alguma das condições seja falsa, o código dentro do else será executado.
+
+console.log("O seu número selecionado NÃO está dentro do intervalo selecionado");
+
+Exibe uma mensagem informando que o número não pertence ao intervalo.
+
+
+Exercício 5 — Verificação de compra de produto
+
+O exercício simula uma situação onde um cliente deseja comprar um produto e o sistema precisa verificar se a compra é possível.
+
+Foram apresentadas duas formas de resolver o problema.
+
+
+Resolução 1 — Verificação apenas de quantidade
+
+Código
+
+const produtoEstoque = 100
+
+const compraCliente = 110
+
+
+if(produtoEstoque >= compraCliente){
+
+   console.log("Há quantidades suficientes do produto para serem comprados")
+
+} else{
+
+   console.log("Não há a quantidade suficiente de produtos para essa compra!\n");
+
+}
+
+Explicação linha por linha
+
+const produtoEstoque = 100
+
+Define a quantidade de produtos disponíveis no estoque.
+
+const compraCliente = 110
+
+Define a quantidade que o cliente deseja comprar.
+
+if(produtoEstoque >= compraCliente){
+
+Verifica se a quantidade em estoque é maior ou igual à quantidade desejada pelo cliente.
+
+console.log("Há quantidades suficientes do produto para serem comprados")
+
+Se houver estoque suficiente, o sistema informa que a compra pode ser realizada.
+
+} else{
+
+Caso contrário, executa o bloco else.
+
+console.log("Não há a quantidade suficiente de produtos para essa compra!")
+
+Exibe uma mensagem informando que não há estoque suficiente.
+
+
+Resolução 2 — Verificação de estoque e saldo
+
+Nesta segunda solução, o problema fica mais próximo de um cenário real, pois considera duas condições:
+
+O produto precisa estar disponível no estoque
+O cliente precisa ter saldo suficiente para pagar
+Código
+
+const estoque = true
+
+const saldoCliente = 100
+
+const valorProduto = 111
+
+
+if(estoque === true && saldoCliente >= valorProduto){
+
+   console.log("Há quantidades suficientes do produto para serem comprados")
+
+} else{
+
+   console.log("Não há a quantidade suficiente de produtos para essa compra!");
+
+}
+
+Explicação linha por linha
+
+const estoque = true
+
+Indica que o produto está disponível no estoque.
+
+const saldoCliente = 100
+
+Define o saldo disponível do cliente.
+
+const valorProduto = 111
+
+Define o preço do produto.
+
+if(estoque === true && saldoCliente >= valorProduto){
+
+Aqui são verificadas duas condições ao mesmo tempo:
+
+estoque === true → confirma que o produto está disponível
+saldoCliente >= valorProduto → verifica se o cliente possui saldo suficiente
+Ambas precisam ser verdadeiras para permitir a compra.
+
+console.log("Há quantidades suficientes do produto para serem comprados")
+
+Se as duas condições forem verdadeiras, a compra pode ser realizada.
+
+} else{
+
+Caso alguma das condições seja falsa, o bloco else será executado.
+
+console.log("Não há a quantidade suficiente de produtos para essa compra!");
+
+Exibe uma mensagem informando que a compra não pode ser realizada.
+
+
+Exercício — Verificar se uma pessoa pode votar
+
+O exercício consiste em verificar se uma pessoa está apta a votar, considerando duas regras:
+
+Ter 16 anos ou mais
+Possuir título de eleitor
+Código
+
+const idade = 17
+
+const titulo = false
+
+
+console.log("Sua idade é:", idade, "e consta que seu título é:", titulo)
+
+
+if(idade >= 16 && titulo === true){
+
+   console.log("Você está elegível a votar!")
+
+} else {
+
+   console.log("Você não está apto a votar")
+
+}
+
+Explicação linha por linha
+
+const idade = 17
+
+Define a idade da pessoa.
+
+const titulo = false
+
+Define se a pessoa possui título de eleitor (true ou false).
+
+console.log("Sua idade é:", idade, "e consta que seu título é:", titulo)
+
+Exibe as informações da pessoa no console.
+
+if(idade >= 16 && titulo === true){
+
+Verifica duas condições:
+
+Se a idade é maior ou igual a 16
+Se a pessoa possui título de eleitor
+console.log("Você está elegível a votar!")
+
+Se ambas forem verdadeiras, a pessoa está apta a votar.
+
+} else {
+
+Caso contrário, executa o bloco else.
+
+console.log("Você não está apto a votar")
+
+Exibe a mensagem informando que a pessoa não pode votar.
+
+
+Entrada e Saída de Dados no Terminal
+
+No final da aula foi introduzido o conceito de entrada de dados pelo terminal, utilizando o módulo readline do Node.js.
+
+Também foram apresentados dois conceitos importantes:
+
+Termo
+
+Significado
+
+stdin
+
+Standard Input — entrada de dados
+
+stdout
+
+Standard Output — saída de dados
+
+Fluxo básico:
+
+stdin → programa → stdout
+
+Ou seja:
+
+O usuário digita algo no terminal
+O programa recebe essa informação
+O programa retorna uma resposta no console
+
+Código de Entrada de Dados com Readline
+
+const readline = require('readline');
+
+
+const rl = readline.createInterface({
+
+   input: process.stdin,
+
+   output: process.stdout
+
+})
+
+Explicação
+
+const readline = require('readline');
+
+Importa o módulo readline, que permite ler dados digitados pelo usuário no terminal.
+
+const rl = readline.createInterface({
+
+Cria uma interface de leitura chamada rl.
+
+input: process.stdin,
+
+Define que a entrada de dados virá do teclado.
+
+output: process.stdout
+
+Define que as mensagens serão exibidas no terminal.
+
+
+Definindo o prompt
+
+rl.setPrompt('Seu nome:');
+
+rl.prompt()
+
+Explicação:
+
+setPrompt() define a mensagem que será exibida ao usuário solicitando a entrada.
+
+prompt() mostra essa mensagem no terminal.
+
+
+Recebendo a entrada do usuário
+
+let entradaUsuario = ''
+
+
+rl.on('line', (input) => {
+
+   entradaUsuario = input.toString()
+
+   console.log("Seu nome é " + entradaUsuario)
+
+   rl.close()
+
+})
+
+Explicação linha por linha:
+
+let entradaUsuario = ''
+
+Cria uma variável para armazenar o valor digitado pelo usuário.
+
+rl.on('line', (input) => {
+
+Define um evento que é executado quando o usuário pressiona ENTER no terminal.
+
+entradaUsuario = input.toString()
+
+Converte a entrada recebida para texto e armazena na variável.
+
+console.log("Seu nome é " + entradaUsuario)
+
+Exibe no terminal o valor digitado pelo usuário.
+
+rl.close()
+
+Encerra a interface de leitura.
+
+
+Observação importante
+
+Para interromper manualmente a execução do programa no terminal, pode-se usar:
+
+CTRL + C
+
+Isso encerra o processo que está escutando entradas no terminal.
+
+
+Introdução ao Conceito de Arrays
+
+Ao final da aula, o professor iniciou uma breve introdução ao conceito de Arrays, que serão explorados com mais profundidade nas próximas aulas.
+
+Um Array é uma estrutura utilizada para armazenar vários valores dentro de uma única variável.
+
+Exemplo:
+
+const numeros = [10, 20, 30, 40]
+
+Nesse caso:
+
+numeros é um array
+ele contém quatro valores
+Cada valor possui um índice, que representa sua posição dentro do array.
+
+Os índices começam em 0.
+
+Exemplo de acesso:
+
+console.log(numeros[0])
+
+Saída:
+
+10
+
+
+
+
+ 
+
+
+
+Aula 8
+Resumo:
+A aula apresentou o conceito de arrays em JavaScript, estruturas usadas para armazenar vários valores em uma única variável, acessados por meio de índices que começam em 0. Foi demonstrado como acessar valores do array, comparar elementos utilizando condicionais, e manipular dados com métodos como push, pop, shift, unshift, splice, includes e length. Também foram mencionados outros métodos úteis para trabalhar com arrays. Por fim, foram realizados exercícios práticos, incluindo a criação de um array com nomes e um programa em Node.js utilizando readline para inserir notas, armazená-las em arrays e calcular a média das provas.
+
+
+Nesta aula foi introduzido o conceito de Arrays em JavaScript, que são estruturas utilizadas para armazenar vários valores dentro de uma única variável. Cada valor dentro do array possui uma posição chamada índice, que sempre começa em 0.
+
+Exemplo de criação de array e acesso por índice:
+
+// Número inteiro (int) 10
+// Número float 1.0
+
+const numeros = [10,20,30,40,50]
+console.log(numeros[3])
+
+Nesse caso, numeros[3] retorna 40, pois a contagem começa em 0.
+
+
+Comparando valores de um Array
+
+Também foi demonstrado como usar condicionais com arrays, comparando valores armazenados em diferentes índices.
+
+const grupoArray = [54,69]
+
+if (grupoArray[0] < grupoArray[1]){
+  console.log("O maior número é " + grupoArray[1])
+}else{
+  console.log("O maior número é " + grupoArray[0])
+}
+
+Aqui o programa compara os dois valores do array e imprime o maior número no console.
+
+
+
+Métodos de Arrays
+
+push() → adiciona elemento no final
+let exemplo = [10,20,30,40,50]
+exemplo.push(60)
+
+console.log(exemplo)
+
+
+// [10,20,30,40,50,60]
+
+
+pop() → remove o último elemento
+
+let cores = ['azul', 'verde', 'rosa']
+cores.pop()
+console.log(cores)
+
+
+// ['azul','verde']
+
+
+shift() → remove o primeiro elemento
+
+let cores2 = ['azul', 'verde', 'rosa']
+cores2.shift()
+console.log(cores2)
+
+
+// ['verde','rosa']
+
+
+unshift() → adiciona elemento no início
+
+let cores3 = ['verde', 'rosa']
+cores3.unshift('azul')
+console.log(cores3)
+
+
+// ['azul','verde','rosa']
+
+
+splice() → remove elemento específico
+
+let cores4 = ['azul', 'verde', 'rosa']
+cores4.splice(1,1)
+console.log(cores4)
+
+// ['azul','rosa']
+
+O primeiro número indica o índice, e o segundo quantos elementos serão removidos.
+
+
+includes() → verifica se existe no array
+
+let cores5 = ['azul', 'verde', 'rosa']
+console.log(cores5.includes('verde'))
+
+
+// true
+
+Esse método retorna true ou false.
+
+
+length → tamanho do array
+
+let cores6 = ['azul', 'verde', 'rosa']
+console.log(cores6.length)
+
+
+
+// 3
+
+
+Exercício 1 – Array simples
+
+Foi criado um array com dois nomes e utilizado template string para imprimir uma frase.
+
+let minhaMesa = ['Lucas', 'Darci']
+console.log(`Meu nome é ${minhaMesa[0]} e meu colega se chama ${minhaMesa[1]}`)
+
+Saída esperada:
+Meu nome é Lucas e meu colega se chama Darci
+
+
+
+
+
+Exercício 2 – Inserindo notas pelo terminal
+
+Neste exercício foi utilizado Node.js com readline para receber dados digitados pelo usuário.
+
+const readline = require('readline');
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+})
+
+rl.prompt()
+console.log("Digite as notas das provas")
+let prova1 = []
+let prova2 = []
+
+rl.on('line', (input) => {
+  let nota1 = parseFloat(input)
+  prova1.push(nota1)
+
+  rl.on('line', (input2) => {
+      let nota2 = parseFloat(input2)
+      prova2.push(nota2)
+
+      const media = (prova1[0] + prova2[0]) / 2
+      console.log(media)
+
+  })
+})
+
+Nesse exercício:
+
+O usuário digita as notas das provas.
+As notas são convertidas para número com parseFloat().
+São armazenadas em arrays usando push().
+Depois é calculada a média das duas provas.
+Aula 9
+
+Resumo:
+A aula iniciou com a resolução de um exercício utilizando Node.js e arrays, no qual o usuário digitava tarefas pelo terminal utilizando o módulo readline. As tarefas eram armazenadas em um array com o método push(), a quantidade de tarefas era exibida com a propriedade length, e a última tarefa era removida utilizando pop(). Em seguida, foi iniciado um novo conteúdo sobre objetos em JavaScript, estruturas utilizadas para armazenar informações relacionadas por meio de pares de chave e valor. Foram apresentados exemplos de objetos representando um carro e uma pessoa, além de um exercício criando um objeto que descreve uma pintura, demonstrando também como acessar propriedades utilizando a notação de ponto e como utilizar template strings para exibir essas informações no console.
+
+Aula — Exercício com Arrays e Introdução a Objetos
+
+Exercício Resolvido — Lista de Tarefas com Node.js
+
+No início da aula foi realizada a resolução de um exercício utilizando Node.js, cujo objetivo era criar um programa que permitisse ao usuário digitar tarefas pelo terminal, armazená-las em um array, contar quantas tarefas foram adicionadas e depois remover a última tarefa da lista.
+
+Esse exercício revisou conceitos importantes estudados nas aulas anteriores:
+
+Arrays
+método push()
+método pop()
+propriedade length
+entrada de dados pelo terminal com readline
+
+Código do exercício
+
+const readline = require('readline');
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+})
+
+let listaTarefas = []
+rl.question("Digite uma tarefa:", (tarefa1) => {
+  listaTarefas.push(tarefa1)
+rl.question("Digite uma tarefa:", (tarefa2) => {
+  listaTarefas.push(tarefa2)
+rl.question("Digite uma tarefa:", (tarefa3) => {
+  listaTarefas.push(tarefa3)
+console.log(`\nVocê adicionou ${listaTarefas.length} tarefas!`)
+console.log('\nAgora que você já concluíu essa última tarefa... vamos removê-la')
+listaTarefas.pop()
+console.log(`\nAqui estão suas tarefas atualizadas: ${listaTarefas}!`)
+rl.close();
+})
+})
+})
+
+
+Explicação do código
+
+Importação do módulo readline
+
+const readline = require('readline');
+
+Importa o módulo readline, que permite ler dados digitados pelo usuário no terminal.
+
+
+Criação da interface de leitura
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+})
+
+Aqui é criada uma interface chamada rl, responsável por:
+
+receber dados digitados no terminal (stdin)
+exibir mensagens no console (stdout)
+
+Criação do array de tarefas
+
+let listaTarefas = []
+
+Cria um array vazio chamado listaTarefas, que será utilizado para armazenar as tarefas digitadas pelo usuário.
+
+
+Recebendo as tarefas do usuário
+
+rl.question("Digite uma tarefa:", (tarefa1) => {
+  listaTarefas.push(tarefa1)
+
+O método question() exibe uma pergunta no terminal e aguarda o usuário digitar uma resposta.
+
+A resposta digitada é armazenada na variável tarefa1.
+
+Em seguida, a tarefa é adicionada ao array utilizando o método push(), que insere elementos no final do array.
+
+O mesmo processo é repetido para as outras tarefas.
+
+
+Contando quantas tarefas foram adicionadas
+
+console.log(`\nVocê adicionou ${listaTarefas.length} tarefas!`)
+
+Aqui utilizamos a propriedade length, que retorna quantos elementos existem dentro do array.
+
+O \n serve para criar uma quebra de linha no console, deixando a saída mais organizada.
+
+
+Removendo a última tarefa
+
+listaTarefas.pop()
+
+O método pop() remove o último elemento do array.
+
+
+Exibindo a lista atualizada
+
+console.log(`\nAqui estão suas tarefas atualizadas: ${listaTarefas}!`)
+
+Após remover a última tarefa, o programa exibe a lista atualizada de tarefas.
+
+
+Outra forma possível de resolver o exercício
+
+O professor também comentou que seria possível criar o array diretamente com as tarefas.
+
+let listaTarefas = [tarefa1, tarefa2, tarefa3]
+
+console.log(`Você tem ${listaTarefas.length} tarefas!`)
+
+Essa abordagem cria o array já contendo os valores digitados, em vez de utilizar o método push().
+
+
+Introdução a Objetos em JavaScript
+
+Após a resolução do exercício, foi iniciado um novo conteúdo: Objetos em JavaScript.
+
+Um objeto é uma estrutura utilizada para armazenar várias informações relacionadas entre si.
+
+Essas informações são organizadas em pares de chave e valor, chamados de propriedades.
+
+Cada propriedade possui:
+
+um nome (chave)
+um valor associado
+Diferente dos arrays, que utilizam índices numéricos, os objetos são acessados utilizando o nome da propriedade.
+
+Os objetos são muito úteis para representar informações mais complexas, como por exemplo:
+
+uma pessoa
+um carro
+um produto
+uma obra de arte
+Além disso, um objeto pode armazenar diferentes tipos de dados, como textos, números ou até outros objetos.
+
+
+
+Criando um Objeto
+
+Para criar um objeto utilizamos chaves {}.
+
+Dentro dessas chaves colocamos as propriedades.
+
+Exemplo — Objeto carro
+
+let carro = {
+  fabricante: "Ford",
+  modelo: "Ka",
+  ano: 2009
+}
+
+Neste objeto temos três propriedades:
+
+Propriedade
+
+Valor
+
+fabricante
+
+Ford
+
+modelo
+
+Ka
+
+ano
+
+2009
+
+
+Exemplo — Objeto pessoa
+
+let pessoa = {
+  nome: "Fulano",
+  idade: 18,
+  cidadeDeNascimento: "Ponta Grossa, PR"
+}
+
+Este objeto representa uma pessoa e armazena três informações relacionadas a ela.
+
+
+Acessando propriedades de um objeto
+
+Para acessar uma informação dentro de um objeto utilizamos a notação de ponto.
+
+console.log(carro.fabricante)
+
+Nesse exemplo:
+
+carro é o objeto
+fabricante é a propriedade acessada
+Saída no console:
+
+Ford
+
+
+Exercício — Criando um objeto de pintura
+
+Durante a aula foi criado um objeto representando uma obra de arte.
+
+let pintura = {
+  nomePintura: "A Noite Estrelada",
+  nomeArtista: "Van Gogh",
+  ano: 1889,
+  significado: "a vista da janela de um Hospício Francês"
+}
+
+Cada propriedade armazena uma informação relacionada à pintura.
+
+
+Exibindo as informações do objeto
+
+Depois foi utilizada template string para imprimir uma frase com os dados do objeto.
+
+console.log(`A minha pintura favorita é ${pintura.nomePintura} de ${pintura.nomeArtista}. Feita em ${pintura.ano}, representa ${pintura.significado}!`)
+
+Saída esperada:
+
+A minha pintura favorita é A Noite Estrelada de Van Gogh. Feita em 1889, representa a vista da janela de um Hospício Francês!
+
