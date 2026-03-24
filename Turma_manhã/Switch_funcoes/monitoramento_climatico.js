@@ -3,9 +3,9 @@ const prompt = require(`prompt-sync`)();
 let temperatura = [];
 
 console.log(`
-========================================
--------- Insira as temperaturas --------
-========================================\n`);
+============================================
+======= 🌡️ Insira as temperaturas 🌡️ =========
+============================================\n`);
 
 
 for (let i = 0; i < 3; i++) {
@@ -20,11 +20,11 @@ const avaliarTemperaturas = (valor) => {
     
     if (media >= 30 ) {
         
-        console.log(`\n========================================\n------ ⚠️ Alerta de Aquecimento! ⚠️ ------\n========================================`);
+        console.log(`\n============================================\n======== ⚠️ Alerta de Aquecimento! ⚠️ ========\n============================================`);
 
     } else {
         
-        console.log(`\n========================================\n========= ✨ Clima Estável! ✨ =========\n======================================== `)
+        console.log(`\n============================================\n=========== ✨ Clima Estável! ✨ ===========\n============================================ `)
 
     }
     
@@ -32,4 +32,5 @@ const avaliarTemperaturas = (valor) => {
 }
 
 const resultado = avaliarTemperaturas(temperatura);
-console.log(`\n- A média das ${temperatura.length} temperaturas é: ${resultado.toFixed(2)}`);
+console.log(`- A média das ${temperatura.length} temperaturas é: ${resultado.toFixed(2)}°C
+============================================`);

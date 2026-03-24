@@ -3,16 +3,22 @@ const prompt = require(`prompt-sync`)();
 let pedido = {
     nome: `Felipe` 
 }
+console.log(`============================\n------- Olá ${pedido.nome}! --------\nSeja bem-vindo a nossa loja!`);
 
-console.log(`\n======================
--- Menu de seleção --
-======================
-| [1] - 🎧 Fone       |
-| [2] - ⌨️ Teclado    |
-| [3] - 🖱️ Mouse      |
-======================\n`);
+function menu() {
 
-let opcao = parseInt(prompt(`Digite a opção desejada: `))
+    console.log(`============================
+----- Menu de seleção ------
+============================
+| [1] - 🎧 Fone            |
+| [2] - ⌨️ Teclado          |
+| [3] - 🖱️ Mouse            |
+============================`);
+}
+
+menu();
+
+let opcao = parseInt(prompt(` Digite a opção desejada: `))
 
 switch (opcao) {
     case 1:
@@ -44,7 +50,7 @@ switch (opcao) {
         break;
 };
 
-console.log(`\n======================
+console.log(`============================
  Produto: ${pedido.produto}
  Valor:   R$ ${pedido.preco.toFixed(2)}
-======================`);
+============================`);
