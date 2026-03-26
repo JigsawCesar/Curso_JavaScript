@@ -5,11 +5,11 @@ let salario;
 let bonus;
 let total;
 
-console.log(`\n---- Consulta de Bônus por cargo ----\n\n ==================
-| [1] - Estagiário |
-| [2] - Júnior     |
-| [3] - Pleno      |
- ==================\n`);
+console.log(`\n---- Consulta de Bônus por cargo ----\n\n ===============================
+| [1] - Estagiário              |
+| [2] - Júnior                  |
+| [3] - Pleno                   |
+ ===============================\n`);
 
 opcao = parseInt(prompt(`Digite a opção correspondente ao seu cargo: `));
 salario = parseFloat(prompt(`Digite o salário atual: `));
