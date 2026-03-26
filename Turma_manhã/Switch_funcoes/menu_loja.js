@@ -16,41 +16,54 @@ function menu() {
 ============================`);
 }
 
-menu();
 
-let opcao = parseInt(prompt(` Digite a opção desejada: `))
+function escolha() {
 
-switch (opcao) {
-    case 1:
+    let opcao = parseInt(prompt(` Digite a opção desejada: `))
+
+    switch (opcao) {
+        case 1:
+            
+            pedido.produto = `Fone`;
+            pedido.preco = 100;
+
+            break;
+
+        case 2:
+            
+            pedido.produto = `Teclado`;
+            pedido.preco = 200;
+
+            break;
         
-        pedido.produto = `Fone`;
-        pedido.preco = 100;
+        case 3:
+            
+            pedido.produto = `Mouse`;
+            pedido.preco = 50;
 
-        break;
+            break;
 
-    case 2:
-        
-        pedido.produto = `Teclado`;
-        pedido.preco = 200;
+        default:
 
-        break;
-    
-    case 3:
-        
-        pedido.produto = `Mouse`;
-        pedido.preco = 50;
+            pedido.produto = `Desconhecido`;
+            pedido.preco = 0;
 
-        break;
-
-    default:
-
-        pedido.produto = `Desconhecido`;
-        pedido.preco = 0;
-
-        break;
+            break;
+    };
 };
 
+
+
+function resultado() {
+
+console.clear();
 console.log(`============================
- Produto: ${pedido.produto}
- Valor:   R$ ${pedido.preco.toFixed(2)}
+Produto: ${pedido.produto}
+Valor:   R$ ${pedido.preco.toFixed(2)}
 ============================`);
+
+};
+
+menu();
+escolha();
+resultado(pedido.produto, pedido.preco);
