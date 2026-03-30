@@ -21,6 +21,48 @@ const saudadcao = () => {
     
 }
 
+const adicao = () => {
+    
+    resultado = number1 + number2;
+    return console.log(`⦙ Resultado:\n⦙ ${number1} + ${number2} = ${resultado}`);
+
+};
+
+const subtracao = () => {
+
+    resultado = number1 - number2;
+    return console.log(`⦙ Resultado:\n⦙ ${number1} - ${number2} = ${resultado}`);
+};
+
+const multiplicacao = () => {
+
+    resultado = number1 * number2;
+    return console.log(`⦙ Resultado:\n⦙ ${number1} * ${number2} = ${resultado}`);
+};
+
+const divisao = () => {
+
+    resultado = number1 / number2;
+    return console.log(`⦙ Resultado:\n⦙ ${number1} / ${number2} = ${resultado}`);};
+
+const potenciacao = () => {
+
+    console.log();
+    number1 = Number(prompt(`⦙ Digite o número que será a base da potenciação: `));
+    number2 = Number(prompt(`⦙ Digite o número que será o expoente da potenciação: `));
+    resultado = Math.pow(number1, number2);
+    return console.log(`⦙\n⦙ Resultado:\n⦙ ${number1} ^ ${number2} = ${resultado.toFixed(2)}`);
+};
+
+const raiz_quadrada = () => {
+
+    console.log();
+    number1 = Number(prompt(`⦙ Digite o número que deseja obter a raíz quadrada: `))
+    resultado = Math.sqrt(number1);
+    return console.log(`⦙\n⦙ Resultado:\n⦙ √¯${number1} = ${resultado}`);
+
+};
+
 const menu = () => {
     do {
     console.log(`
@@ -104,48 +146,6 @@ const menu = () => {
     
 
     } while (opcao != 0);
-
-};
-
-const adicao = () => {
-    
-    resultado = number1 + number2;
-    return console.log(`⦙ Resultado:\n⦙ ${number1} + ${number2} = ${resultado}`);
-
-};
-
-const subtracao = () => {
-
-    resultado = number1 - number2;
-    return console.log(`⦙ Resultado:\n⦙ ${number1} - ${number2} = ${resultado}`);
-};
-
-const multiplicacao = () => {
-
-    resultado = number1 * number2;
-    return console.log(`⦙ Resultado:\n⦙ ${number1} * ${number2} = ${resultado}`);
-};
-
-const divisao = () => {
-
-    resultado = number1 / number2;
-    return console.log(`⦙ Resultado:\n⦙ ${number1} / ${number2} = ${resultado}`);};
-
-const potenciacao = () => {
-
-    console.log();
-    number1 = Number(prompt(`⦙ Digite o número que será a base da potenciação: `));
-    number2 = Number(prompt(`⦙ Digite o número que será o expoente da potenciação: `));
-    resultado = Math.pow(number1, number2);
-    return console.log(`⦙\n⦙ Resultado:\n⦙ ${number1} ^ ${number2} = ${resultado.toFixed(2)}`);
-};
-
-const raiz_quadrada = () => {
-
-    console.log();
-    number1 = Number(prompt(`⦙ Digite o número que deseja obter a raíz quadrada: `))
-    resultado = Math.sqrt(number1);
-    return console.log(`⦙\n⦙ Resultado:\n⦙ √¯${number1} = ${resultado}`);
 
 };
 
