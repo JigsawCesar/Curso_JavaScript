@@ -10,9 +10,6 @@ import saudacao from "./saudacao.js";
 import menu from "./menu.js";
 
 const prompt = PromptSync();
-const verde = "\x1b[32m";
-const amarelo = "\x1b[33m";
-const roxo = "\x1b[34m";
 const negrito = "\x1b[1m";
 const vermelho = "\x1b[31m";
 const reset = "\x1b[0m";
@@ -32,6 +29,7 @@ console.clear();
 saudacao(nome);
 
 do {
+    menu();
     opcao = parseInt(prompt(`${negrito}${ciano}⦙ Digite a opção desejada: ${reset}`));
     console.clear();
     
@@ -81,5 +79,3 @@ do {
             
         } while (opcao != 0);
 
-        
-saudacao(nome);

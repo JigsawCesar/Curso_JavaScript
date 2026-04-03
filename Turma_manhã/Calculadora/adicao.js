@@ -1,10 +1,13 @@
+import PromptSync from "prompt-sync";
+
+const prompt = PromptSync();
 const vermelho = "\x1b[31m";
 const reset = "\x1b[0m";
 const ciano = "\x1b[36m";
 const magenta = "\x1b[35m";
 const negrito = "\x1b[1m";
 
-const adicao = () => {
+const adicao = (number1, number2, resultado) => {
     
     console.log();
 
