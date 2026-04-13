@@ -13,6 +13,7 @@ const saudacao = (nome) => {
 ╰───────────────────────────────${reset}\n`);
 
     prompt (`Pressione ${verde}${negrito}Enter${reset} para continuar...`);
+    console.clear();
 
 
     
