@@ -8,7 +8,7 @@ import raiz_quadrada from "./raiz_quadrada.js";
 import porcentagem from "./porcentagem.js";
 import saudacao from "./saudacao.js";
 import menu from "./menu.js";
-import { ciano, magenta, negrito, reset, vermelho } from "./cores_terminal.js";
+import { ciano, roxo, negrito, reset, vermelho } from "./cores_terminal.js";
 
 const prompt = PromptSync();
 
@@ -31,7 +31,11 @@ do {
     
     switch (opcao) {
         case 0:
-            console.log(`\n${negrito}${magenta}⦙ Obrigado por usar a calculadora.\n⦙ Até a próxima!${reset}\n`);
+                console.log(`${roxo}    
+╭────────────────────────────────────╮
+│${reset}  Obrigado por usar a calculadora${reset}${roxo}   │                              
+│${reset}           Até a próxima!${roxo}           │
+╰────────────────────────────────────╯${reset}\n`);
             setTimeout(function() {
                 
                 console.clear();
