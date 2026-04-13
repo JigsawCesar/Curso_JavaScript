@@ -7,10 +7,10 @@ const saudacao = (nome) => {
     
 
     console.log(`${roxo}    
-╭───────────────────────────────
+╭──────────────────────────────────╮
 │${reset} Olá, ${verde}${negrito}${nome}${reset}!${roxo}                              
-│${reset} Seja bem-vindo à Calculadora!        ${roxo}
-╰───────────────────────────────${reset}\n`);
+│${reset} Seja bem-vindo à Calculadora!    ${roxo}│
+╰──────────────────────────────────╯${reset}\n`);
 
     prompt (`Pressione ${verde}${negrito}Enter${reset} para continuar...`);
     console.clear();
