@@ -1,17 +1,18 @@
 import PromptSync from "prompt-sync";
-import adicionar from "./adicionar.js";
-import remover from "./remover.js";
-import media from "./media.js";
-import mediana from "./mediana.js";
+import adicionar_numero from "./adicionar.js";
+import remover_numero from "./remover.js";
+import calcular_media from "./media.js";
+import calcular_mediana from "./mediana.js";
 import menu from "./menu.js";
 import saudacao from "../Calculadora/saudacao.js";
-import { ciano, roxo, magenta, negrito, reset } from "../Calculadora/cores_terminal.js";
+import { ciano, roxo, magenta, negrito, vermelho, verde, reset } from "../Calculadora/cores_terminal.js";
 
 const prompt = PromptSync();
 let escolha;
-let lista =[10,20,30];
-let resultado;
-let nome;
+let lista =[];
+let nome = ``;
+let numero = 0;
+let resultado = 0;
 
 console.log();
 nome = prompt(`${negrito}${ciano}⦙ Digite seu nome:${reset} `);
@@ -38,22 +39,34 @@ do {
             }, 2000);
             break;
         case 1:
-            adicionar();
+            numero = Number(prompt(`${negrito}${ciano}⦙ Digite o número deseja adicionar: ${reset}`));
+            console.clear();
+            adicionar_numero(lista, numero);
             break;
         case 2:
-            remover();
+            remover_numero(lista);
             break;
         case 3:
-            resultado = media(lista);
-            console.log(`${negrito}${magenta}A média é: ${resultado.toFixed(2)}${reset}`);
-            prompt(`${negrito}${ciano}⦙ Pressione Enter para voltar ao menu ...${reset}`);
+            if (lista.length === 0){
+                console.log(`\n${negrito}${vermelho}⦙ A lista está vazia!${reset}\n`);
+                prompt(`${negrito}${ciano}⦙ Pressione ${verde}Enter${reset} ${ciano}para voltar ao menu ...${reset}`);
+            } else {console.log(`${negrito}${magenta}⦙ Números na lista:${reset} ${lista.join(", ")}\n`);
+               prompt(`${negrito}${ciano}⦙ Pressione ${verde}Enter${reset} ${ciano}para voltar ao menu ...${reset}`);
+            }
             break;
         case 4:
-            resultado = mediana(lista);
-            console.log(`${negrito}${magenta}A mediana é: ${resultado.toFixed(2)}${reset}`);
+            resultado = calcular_media(lista);
+            console.log(`${negrito}${magenta}⦙ Números na lista:${reset} ${lista.join(", ")}\n${negrito}${magenta}⦙ A média é:${reset} ${resultado.toFixed(2)}\n`);
+            prompt(`${negrito}${ciano}⦙ Pressione ${verde}Enter${reset} ${ciano}para voltar ao menu ...${reset}`);
+            break;
+        case 5:
+            lista.sort((a, b) => a - b);
+            resultado = calcular_mediana(lista);
+            console.log(`${negrito}${magenta}⦙ Números na lista:${reset} ${lista.join(", ")}\n${negrito}${magenta}⦙ A mediana é:${reset} ${resultado}\n`);
+            prompt(`${negrito}${ciano}⦙ Pressione ${verde}Enter${reset} ${ciano}para voltar ao menu ...${reset}`);
             break;
         default:
-
+            console.log(`\n${negrito}${vermelho}⦙ Opção inválida. \n⦙ Por favor, digite uma opção válida.${reset}\n`);
             break;
     };
 } while (escolha != 0);
