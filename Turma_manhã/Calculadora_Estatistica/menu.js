@@ -1,8 +1,8 @@
-const amarelo = "\x1b[33m";
-const roxo = "\x1b[34m";
-const negrito = "\x1b[1m";
+import { amarelo, negrito, reset, roxo, vermelho } from "../Calculadora/cores_terminal.js";
 
-console.log(`
+const menu = () =>{
+
+    console.log(`
 ${roxo}====================================================
 ================= ${negrito}${amarelo}Menu de Opções${reset} ${roxo}===================
 ====================================================
@@ -15,4 +15,7 @@ ${roxo}⦙                                                   ⦙
 ${roxo}⦙ ${vermelho}[0]${reset} - ${vermelho}Sair${reset}                                        ${roxo}⦙
 ${roxo}====================================================${reset}`);
 
+};
+
 export default menu;
+
