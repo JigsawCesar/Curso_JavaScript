@@ -8,13 +8,9 @@ import raiz_quadrada from "./raiz_quadrada.js";
 import porcentagem from "./porcentagem.js";
 import saudacao from "./saudacao.js";
 import menu from "./menu.js";
+import { negrito, vermelho, reset, ciano, magenta, amarelo, roxo, verde } from "./cores_terminal.js";
 
 const prompt = PromptSync();
-const negrito = "\x1b[1m";
-const vermelho = "\x1b[31m";
-const reset = "\x1b[0m";
-const ciano = "\x1b[36m";
-const magenta = "\x1b[35m";
 
 let number1 = 0;
 let number2 = 0;

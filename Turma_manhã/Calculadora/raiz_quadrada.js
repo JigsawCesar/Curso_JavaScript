@@ -1,11 +1,7 @@
 import PromptSync from "prompt-sync";
+import { negrito, vermelho, reset, ciano, magenta, amarelo, roxo } from "./cores_terminal.js";
 
 const prompt = PromptSync();
-const vermelho = "\x1b[31m";
-const reset = "\x1b[0m";
-const ciano = "\x1b[36m";
-const magenta = "\x1b[35m";
-const negrito = "\x1b[1m";
 
 const raiz_quadrada = (number1, resultado) => {
     console.log();

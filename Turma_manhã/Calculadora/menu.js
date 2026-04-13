@@ -1,8 +1,4 @@
-const amarelo = "\x1b[33m";
-const roxo = "\x1b[34m";
-const negrito = "\x1b[1m";
-const vermelho = "\x1b[31m";
-const reset = "\x1b[0m";
+import { negrito, vermelho, reset, ciano, magenta, amarelo, roxo } from "./cores_terminal.js";
 
 const menu = () => {
     console.log(`

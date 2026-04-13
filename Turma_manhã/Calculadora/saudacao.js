@@ -1,10 +1,7 @@
 import PromptSync from "prompt-sync";
+import { negrito, vermelho, reset, ciano, magenta, amarelo, roxo, verde } from "./cores_terminal.js";
 
 const prompt = PromptSync();
-const verde = "\x1b[32m";
-const negrito = "\x1b[1m";
-const roxo = "\x1b[34m";
-const reset = "\x1b[0m";
 
 const saudacao = (nome) => {
     
