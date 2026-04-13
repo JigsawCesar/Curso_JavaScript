@@ -1,4 +1,4 @@
-import { negrito, vermelho, reset, ciano, magenta, amarelo, roxo } from "./cores_terminal.js";
+import { negrito, vermelho, reset, amarelo, roxo } from "./cores_terminal.js";
 
 const menu = () => {
     console.log(`

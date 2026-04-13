@@ -1,5 +1,5 @@
 import PromptSync from "prompt-sync";
-import { negrito, vermelho, reset, ciano, magenta, amarelo, roxo, verde } from "./cores_terminal.js";
+import { negrito, reset, roxo, verde } from "./cores_terminal.js";
 
 const prompt = PromptSync();
 
