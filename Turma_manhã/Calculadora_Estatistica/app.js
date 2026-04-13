@@ -4,20 +4,21 @@ import remover from "./remover.js";
 import media from "./media.js";
 import mediana from "./mediana.js";
 import menu from "./menu.js";
-
-// Variáveis que armazenam as cores do terminal
-const negrito = "\x1b[1m";
-const vermelho = "\x1b[31m";
-const reset = "\x1b[0m";
-const ciano = "\x1b[36m";
-const magenta = "\x1b[35m";
-
+import saudacao from "../Calculadora/saudacao.js";
+import { ciano, roxo, magenta, negrito, reset } from "../Calculadora/cores_terminal.js";
 
 const prompt = PromptSync();
 let escolha;
 let lista =[10,20,30];
 let resultado;
-  
+let nome;
+
+console.log();
+nome = prompt(`${negrito}${ciano}⦙ Digite seu nome:${reset} `);
+console.clear();
+
+saudacao(nome);
+
 do {
     menu();
     escolha = parseInt(prompt(`${negrito}${ciano}⦙ Digite a opção desejada: ${reset}`));
@@ -25,7 +26,11 @@ do {
 
     switch (Number(escolha)) {
         case 0:
-            console.log(`\n${negrito}${magenta}⦙ Obrigado por usar a calculadora.\n⦙ Até a próxima!${reset}\n`);
+            console.log(`${roxo}    
+╭────────────────────────────────────╮
+│${reset}  Obrigado por usar a calculadora${reset}${roxo}   │                              
+│${reset}           Até a próxima!${roxo}           │
+╰────────────────────────────────────╯${reset}\n`);
             setTimeout(function() {
                 
                 console.clear();
@@ -41,6 +46,7 @@ do {
         case 3:
             resultado = media(lista);
             console.log(`${negrito}${magenta}A média é: ${resultado.toFixed(2)}${reset}`);
+            prompt(`${negrito}${ciano}⦙ Pressione Enter para voltar ao menu ...${reset}`);
             break;
         case 4:
             resultado = mediana(lista);
