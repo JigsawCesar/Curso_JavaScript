@@ -99,5 +99,5 @@ do {
         default:
             console.log(`${negrito}${magenta}⦙ Opção inválida. Tente novamente.${reset}`);
             break
-    }
+    };
 } while (opcao != 0);

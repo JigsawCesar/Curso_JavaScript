@@ -1,7 +1,9 @@
+import { vermelho, negrito, reset } from "../Calculadora/cores_terminal.js";
+
 const listar_contato = (contatos) => {
     
     if (contatos.length === 0) {
-        console.log("Nenhum contato cadastrado.")
+        console.log(`${negrito}${vermelho}\n⦙ Nenhum contato cadastrado.${reset}`)
         return
     };
 
