@@ -9,9 +9,9 @@ const pacientes = [
 ];
 
 let consultas = [
-    { id: 1, data: '2023-01-10', idMedico: 1, idPaciente: 1, descricao: 'Consulta inicial' },
-    { id: 2, data: '2023-02-15', idMedico: 2, idPaciente: 1, descricao: 'Seguimento' },
-    { id: 3, data: '2023-03-20', idMedico: 1, idPaciente: 2, descricao: 'Consulta de rotina' } 
+    { id: 1, data: '10-01-2026', idMedico: 1, idPaciente: 1, descricao: 'Consulta inicial' },
+    { id: 2, data: '15-02-2026', idMedico: 2, idPaciente: 1, descricao: 'Seguimento' },
+    { id: 3, data: '20-03-2026', idMedico: 1, idPaciente: 2, descricao: 'Consulta de rotina' } 
 ];
 
-export default { medicos, pacientes, consultas }
+export { medicos, pacientes, consultas };
