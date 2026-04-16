@@ -1,4 +1,4 @@
-import { negrito, vermelho, reset, amarelo, roxo } from "../Calculadora/cores_terminal.js";
+import { negrito, vermelho, reset, amarelo, roxo } from "../../Calculadora/cores_terminal.js";
 
 const menu = () => {
     console.log(`

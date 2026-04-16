@@ -8,7 +8,7 @@ import cadastrar_usuario from './create.js';
 import atualizar_cadastro from './update.js';
 import remover_contato from './delete.js';
 import menu from './menu.js';
-import { ciano, roxo, magenta, negrito, verde, reset } from "../Calculadora/cores_terminal.js";
+import { ciano, roxo, magenta, negrito, verde, reset } from "../../Calculadora/cores_terminal.js";
 
 let opcao = 0;
 

@@ -1,4 +1,4 @@
-import { vermelho, negrito, reset } from "../Calculadora/cores_terminal.js";
+import { vermelho, negrito, reset } from "../../Calculadora/cores_terminal.js";
 
 const atualizar_cadastro = (contatos, id , novos_dados) => {
     
