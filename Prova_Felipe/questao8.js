@@ -1,17 +1,25 @@
-let palavra = arara;
-let nova_palavra = [];
-let numeros_repetido = [];
+let palavra = "aranha";
+let letra_encontrada = [];
+let contagem = [];
 
 for (let i = 0; i < palavra.length; i++) {
-    const letra = palavra[i];
+    
+    let letra_atual = palavra[i];
+    let indice = letra_encontrada.indexOf(letra_encontrada);
 
-    if (palavra.includes(letra) == true ) {
-        numeros_repetido.push(numero)
-    } else{
-        nova_lista.push(numero);
+
+    if (indice != -1) {
+        contagem[indice]++;
+    } else {
+        letra_encontrada.push(letra_atual);
+        contagem.push(1)
     };
 
 };
 
 console.clear();
-console.log(`⦙ Os números repetidos são: ${numeros_repetido}\n`);
+console.log(`⦙ Relatorio de frequência:`);
+
+for (let i = 0; i < letra_encontrada.length; i++) {
+    console.log(`⦙ ${letra_encontrada[i]}: ${contagem[i]}`);  
+};
