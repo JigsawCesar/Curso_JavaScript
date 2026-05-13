@@ -1,11 +1,9 @@
-import { vermelho, negrito, reset } from "../../Calculadora/cores_terminal.js";
-
 const atualizar_cadastro = (contatos, id , novos_dados) => {
     
     const indice = contatos.findIndex(contato => contato.id === id)
 
     if (indice === -1) {
-        console.log(`${negrito}${vermelho}\n⦙ Erro: Contato não encontrado!${reset}`)
+        console.log(`⦙ Erro: Contato não encontrado!`)
         return
     };
 
@@ -22,7 +20,7 @@ const atualizar_cadastro = (contatos, id , novos_dados) => {
         };
 
         if (email_em_uso) {
-            console.log(`${negrito}${vermelho}\n⦙ Erro: O novo e-mail já está em uso por outro usuário!${reset}`)
+            console.log(`⦙ Erro: O novo e-mail já está em uso por outro usuário!`)
             return
         };
     };

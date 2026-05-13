@@ -1,10 +1,9 @@
 // Importando nossos dados e funções
-import contatos from '../CRUD/Exemplo/contatos.js';
-import listar_contato from '../CRUD/Exemplo/read.js';
-import cadastrar_usuario from '../CRUD/Exemplo/create.js';
-import atualizar_cadastro from '../CRUD/Exemplo/update.js';
-import remover_contato from '../CRUD/Exemplo/delete.js';
-import menu from '../CRUD/Exemplo/menu.js';
+import contatos from './contatos.js';
+import listar_contato from './read.js';
+import cadastrar_usuario from './create.js';
+import atualizar_cadastro from './update.js';
+import remover_contato from './delete.js';
 
 // Importação do Express
 import express from "express";
@@ -28,7 +27,7 @@ app.post(("/contatos"), (req, res) => {
     
     const { nome, email, telefones } = req.body;
 
-    const resultado = adicionarContato(contatos, { nome, email, telefones });
+    const resultado = cadastrar_usuario(contatos, { nome, email, telefones });
     
         if (!resultado) {
             return res.status(400).send({ mensagem: "E-mail já cadastrado!" });
