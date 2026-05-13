@@ -48,15 +48,20 @@ app.get(("/contatos"), (req, res) => {
     res.status(200).send(contatos);
 });
 
+// Update - Put
+app.put(("/contatos/:id"), (req, res) => {
 
+});
+
+// Delete - Delete
+app.put(("/contatos/:id"), (req, res) => {
+    
+});
+
+// Abrindo servidor
 app.listen((porta), () =>{
     console.log(`Servidor rodando na porta ${porta}!`);
 });
-
-let opcao = 0;
-
-
-
 
 /*
 // O loop mantém o programa rodando até o usuário escolher sair
