@@ -19,7 +19,7 @@ app.use(express.json());
 
 // Teste de  funcionalidade do servidor
 app.get(("/"), (req, res) => {
-    res.status(200).send({ mensagem: "Servidor funcionando!" });
+    res.status(200).send({ message: "Servidor funcionando!" });
 });
 
 // Create - Post
@@ -30,10 +30,10 @@ app.post(("/contatos"), (req, res) => {
     const resultado = cadastrar_usuario(contatos, { nome, email, telefones });
     
         if (!resultado) {
-            return res.status(400).send({ mensagem: "E-mail já cadastrado!" });
+            return res.status(400).send({ message: "E-mail já cadastrado!" });
         };
 
-    res.status(201).send( { mensagem: "Contato adicionado com sucesso!" } );
+    res.status(201).send( { message: "Contato adicionado com sucesso!" } );
 
 });
 
@@ -53,8 +53,9 @@ app.put(("/contatos/:id"), (req, res) => {
     const { nome, email, telefones } = req.body
 
     const resultado = atualizar_cadastro(contatos, { nome, email, telefones });
+    const id = parseInt(req.params.id);
 
-    res.status(201).send( {mensagem: "Contato atualizado com sucesso!"})
+    res.status(201).send( { message: "Contato atualizado com sucesso!" })
 
 });
 
