@@ -43,11 +43,12 @@ do {
             let email = prompt(`${negrito}${ciano}⦙ Email: ${reset}`);
             
             // Loop para múltiplos telefones
-            let adicionar_mais = 's'
+            let adicionar_mais = 's';
+
             while (adicionar_mais.toLowerCase() === 's') {
                 telefones.push(prompt(`${negrito}${ciano}⦙ Telefone: ${reset}`));
                 adicionar_mais = prompt(`${negrito}${ciano}⦙ Adicionar outro telefone? (s/n): ${reset}`);
-            }
+            };
 
             let novo_contato = { nome, telefones, email };
             const adicionou = cadastrar_usuario(contatos, novo_contato);
