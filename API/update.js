@@ -1,10 +1,9 @@
 const atualizar_cadastro = (contatos, id , novos_dados) => {
     
-    const indice = contatos.findIndex(contato => contato.id === id)
+    const index = contatos.findIndex(contato => contato.id === id)
 
-    if (indice === -1) {
-        console.log(`⦙ Erro: Contato não encontrado!`)
-        return
+    if(index === -1){
+        return res.status(404).send( { error: "Contato não encontrado!"} );
     };
 
     // Validação de e-mail na atualização
@@ -26,11 +25,11 @@ const atualizar_cadastro = (contatos, id , novos_dados) => {
     };
 
     // Atualiza apenas os campos preenchidos
-    contatos[indice].nome = novos_dados.nome || contatos[indice].nome
-    contatos[indice].email = novos_dados.email || contatos[indice].email
+    contatos[index].nome = novos_dados.nome || contatos[index].nome
+    contatos[index].email = novos_dados.email || contatos[index].email
     // Se o usuário digitou novos telefones (o array é maior que zero), nós substituímos
     if (novos_dados.telefones.length > 0) {
-        contatos[indice].telefones = novos_dados.telefones
+        contatos[index].telefones = novos_dados.telefones
     };
 
     return 
