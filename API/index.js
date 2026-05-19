@@ -50,6 +50,12 @@ app.get(("/contatos"), (req, res) => {
 // Update - Put
 app.put(("/contatos/:id"), (req, res) => {
 
+    const { nome, email, telefones } = req.body
+
+    const resultado = atualizar_cadastro(contatos, { nome, email, telefones });
+
+    res.status(201).send( {mensagem: "Contato atualizado com sucesso!"})
+
 });
 
 // Delete - Delete
