@@ -33,7 +33,7 @@ const atualizar_cadastro = (contatos, id , novos_dados) => {
         contatos[indice].telefones = novos_dados.telefones
     };
 
-    return
+    return 
 };
 
 export default atualizar_cadastro;
