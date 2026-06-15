@@ -3,12 +3,13 @@ import { negrito, vermelho, reset, ciano, magenta } from "./cores_terminal.js";
 
 const prompt = PromptSync();
 
-const porcentagem = (number1, number2, resultado) => {
+const porcentagem = () => {
     console.log();
+    let number1, number2;
     
     while (true) {
-        number1 = Number(prompt(`${negrito}${ciano}⦙ Digite o número que deseja obter a porcentagem: ${reset}`));
-        number2 = Number(prompt(`${negrito}${ciano}⦙ Digite a porcentagem que deseja obter: ${reset}`));
+        number1 = parseFloat(prompt(`${negrito}${ciano}⦙ Digite o número que deseja obter a porcentagem: ${reset}`));
+        number2 = parseFloat(prompt(`${negrito}${ciano}⦙ Digite a porcentagem que deseja obter: ${reset}`));
         console.clear();
         
         if (!(isNaN(number1) || isNaN(number2))) {

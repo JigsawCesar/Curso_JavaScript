@@ -3,12 +3,13 @@ import { negrito, vermelho, reset, ciano, magenta } from "./cores_terminal.js";
 
 const prompt = PromptSync();
 
-const potenciacao = (number1, number2, resultado) => {
+const potenciacao = () => {
     console.log();
+    let number1, number2;
     
     while (true) {
-        number1 = Number(prompt(`${negrito}${ciano}⦙ Digite o número que será a base da potenciação: ${reset}`));
-        number2 = Number(prompt(`${negrito}${ciano}⦙ Digite o número que será o expoente da potenciação: ${reset}`));
+        number1 = parseFloat(prompt(`${negrito}${ciano}⦙ Digite o número que será a base da potenciação: ${reset}`));
+        number2 = parseFloat(prompt(`${negrito}${ciano}⦙ Digite o número que será o expoente da potenciação: ${reset}`));
         console.clear();
 
         if (!(isNaN(number1) || isNaN(number2))) {

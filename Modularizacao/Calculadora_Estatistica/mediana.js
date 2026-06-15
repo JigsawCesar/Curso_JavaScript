@@ -9,7 +9,7 @@ const calcular_mediana = (lista) =>{
         return 0;
     };
     
-    if(lista.length % 2 == 0){
+    if(lista.length % 2 === 0){
         mediana = (lista[lista.length / 2] + lista[(lista.length / 2) - 1]) / 2
     } else {
         mediana = lista[Math.floor(lista.length / 2)]

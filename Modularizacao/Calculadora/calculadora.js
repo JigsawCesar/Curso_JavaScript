@@ -74,8 +74,6 @@ do {
             default:
                 console.log(`\n${negrito}${vermelho}⦙ Opção inválida. \n⦙ Por favor, digite uma opção válida.${reset}\n`);    
                 break;
-            };
-    
-            
+            }
         } while (opcao != 0);
 

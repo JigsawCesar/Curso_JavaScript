@@ -60,9 +60,9 @@ do {
             prompt(`${negrito}${ciano}⦙ Pressione ${verde}Enter${reset} ${ciano}para voltar ao menu ...${reset}`);
             break;
         case 5:
-            lista.sort((a, b) => a - b);
-            resultado = calcular_mediana(lista);
-            console.log(`${negrito}${magenta}⦙ Números na lista:${reset} ${lista.join(", ")}\n${negrito}${magenta}⦙ A mediana é:${reset} ${resultado}\n`);
+            let listaOrdenada = [...lista].sort((a, b) => a - b);
+            resultado = calcular_mediana(listaOrdenada);
+            console.log(`${negrito}${magenta}⦙ Números na lista (ordenada):${reset} ${listaOrdenada.join(", ")}\n${negrito}${magenta}⦙ A mediana é:${reset} ${resultado}\n`);
             prompt(`${negrito}${ciano}⦙ Pressione ${verde}Enter${reset} ${ciano}para voltar ao menu ...${reset}`);
             break;
         default:

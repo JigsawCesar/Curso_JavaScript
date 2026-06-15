@@ -3,9 +3,10 @@ import { ciano, magenta, negrito, reset, vermelho } from "./cores_terminal.js";
 
 const prompt = PromptSync();
 
-const adicao = (number1, number2, resultado) => {
+const adicao = () => {
     
     console.log();
+    let number1, number2;
 
     while (true) { 
         number1 = parseFloat(prompt(`${negrito}${ciano}⦙ Digite o número: ${reset}`));

@@ -3,12 +3,13 @@ import { negrito, vermelho, reset, ciano, magenta } from "./cores_terminal.js";
 
 const prompt = PromptSync();
 
-const subtracao = (number1, number2, resultado) => {
+const subtracao = () => {
     console.log();
+    let number1, number2;
 
     while (true) {
-        number1 = Number(prompt(`${negrito}${ciano}⦙ Digite o número: ${reset}`));
-        number2 = Number(prompt(`${negrito}${ciano}⦙ Digite o número a ser subitraído: ${reset}`));
+        number1 = parseFloat(prompt(`${negrito}${ciano}⦙ Digite o número: ${reset}`));
+        number2 = parseFloat(prompt(`${negrito}${ciano}⦙ Digite o número a ser subtraído: ${reset}`));
         console.clear();
 
         if (!(isNaN(number1) || isNaN(number2))) {
