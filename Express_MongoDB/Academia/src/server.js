@@ -39,7 +39,7 @@ router.post(("/matriculas"), async (req, res) =>{
                     break;
             };
         };
-TODO: parei de editar aqui
+// TODO: parei de editar aqui
         if (plano == "Trimestral") {
             switch (servico) {
                 case "Banho":
