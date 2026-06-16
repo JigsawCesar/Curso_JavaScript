@@ -2,6 +2,7 @@
   "name": "chatbot-ia",
   "version": "1.0.0",
   "description": "Chatbot com API do Google Gemini",
+  "type": "module",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
