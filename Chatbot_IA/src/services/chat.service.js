@@ -4,7 +4,7 @@
 // enviar mensagens para a API e processar respostas.
 // ============================================
 
-import model from '../config/gemini.js';
+import { GEMINI_API_KEY, BASE_URL } from '../config/gemini.js';
 import ConversationRepository from '../repositories/conversation.repository.js';
 import criarErro from '../utils/criarErro.js';
 
@@ -31,21 +31,58 @@ const ChatService = {
         });
 
         try {
-            // Cria uma sessão de chat com o modelo
-            // .slice(0, -1) retorna todas as mensagens exceto a última (a atual)
-            const chat = model.startChat({
-                history: this.formatarHistorico(history.slice(0, -1)),
-                generationConfig: {
-                    maxOutputTokens: 1000,
-                    temperature: 0.7
-                }
+            const contents = [
+                ...this.formatarHistorico(history.slice(0, -1)),
+                { role: 'user', parts: [{ text: message }] }
+            ];
+
+            const response = await fetch(BASE_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-goog-api-key': GEMINI_API_KEY
+                },
+                body: JSON.stringify({
+                    contents,
+                    generationConfig: {
+                        maxOutputTokens: 65536,
+                        temperature: 0.7
+                    }
+                })
             });
 
-            // Envia a mensagem e aguarda a resposta
-            const result = await chat.sendMessage(message);
-            const reply = result.response.text();
+            const data = await response.json();
 
-            // Registra a resposta da IA
+            console.log('Resposta bruta da API:', JSON.stringify(data).substring(0, 500));
+
+            if (data.error) {
+                console.error('Erro completo da API:', JSON.stringify(data.error));
+                const errorStr = typeof data.error === 'string' ? data.error : (data.error.message || JSON.stringify(data.error));
+                const msg = errorStr.toLowerCase();
+                const status = (typeof data.error === 'object' ? data.error.code : null) || response.status;
+                if (status === 429 || msg.includes('quota') || msg.includes('rate') || msg.includes('resource_exhausted') || msg.includes('exceeded')) {
+                    const retryMatch = errorStr.match(/retry in (\d+\.?\d*)s/i);
+                    const retrySeconds = retryMatch ? Math.ceil(parseFloat(retryMatch[1])) : 30;
+                    const error = criarErro('Limite de requisições atingido.', 429);
+                    error.retryAfter = retrySeconds;
+                    throw error;
+                }
+                if (status === 403 || msg.includes('leaked') || msg.includes('permission') || msg.includes('api key')) {
+                    throw criarErro('Chave de API inválida ou bloqueada. Gere uma nova em https://aistudio.google.com/apikey', 403);
+                }
+                throw criarErro('Erro ao processar sua mensagem.', 500);
+            }
+
+            const candidate = data.candidates[0];
+            console.log('finishReason:', candidate.finishReason);
+
+            if (candidate.finishReason === 'MAX_TOKENS') {
+                console.warn('ATENÇÃO: Resposta truncada pelo limite de tokens!');
+            }
+
+            const reply = candidate.content.parts[0].text;
+            console.log('Tamanho da resposta:', reply.length, 'caracteres');
+
             ConversationRepository.adicionarMensagem(sessionId, {
                 role: 'assistant',
                 content: reply
@@ -53,8 +90,9 @@ const ChatService = {
 
             return reply;
         } catch (error) {
+            if (error.status) throw error;
             console.error('Erro na API:', error.message);
-            throw criarErro('Erro ao processar sua mensagem. Verifique sua chave API.', 500);
+            throw criarErro('Erro ao conectar com a API do Gemini.', 500);
         }
     },
 
