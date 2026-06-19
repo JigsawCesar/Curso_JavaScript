@@ -10,7 +10,10 @@
   <div class="chat-container">
     <div class="chat-header">
       <h1>🤖 Chatbot IA</h1>
-      <button id="clearBtn" title="Limpar conversa">🗑️</button>
+      <div class="clear-wrapper">
+        <button id="clearBtn">🗑️</button>
+        <span class="clear-label">Limpar conversa</span>
+      </div>
     </div>
     <div class="chat-messages" id="messages">
       <div class="message bot">
@@ -24,6 +27,9 @@
         <span id="loading" class="loading" style="display:none;">⏳</span>
       </button>
     </form>
+    <div class="history-bar" id="historyBar" style="display:none;">
+      <button id="historyBtn">💬 Ver histórico da conversa</button>
+    </div>
   </div>
   <script src="script.js"></script>
 </body>
