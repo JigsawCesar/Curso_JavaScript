@@ -58,6 +58,18 @@ body {
   background: rgba(0,255,65,0.3);
 }
 
+.clear-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.clear-label {
+  font-size: 0.75rem;
+  color: rgba(0,255,65,0.6);
+}
+
 .chat-messages {
   flex: 1;
   overflow-y: auto;
@@ -83,6 +95,9 @@ body {
 
 .message {
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
   max-width: 80%;
   animation: fadeIn 0.3s ease;
 }
@@ -94,7 +109,7 @@ body {
 
 .message.user {
   align-self: flex-end;
-  flex-direction: row-reverse;
+  align-items: flex-end;
 }
 
 .message.bot {
@@ -128,6 +143,28 @@ body {
   display: flex;
   gap: 10px;
   border-top: 2px solid #00ff41;
+}
+
+.history-bar {
+  padding: 8px 20px;
+  background: #111111;
+  text-align: center;
+}
+
+.history-bar button {
+  background: transparent;
+  border: 1px solid rgba(0,255,65,0.3);
+  color: rgba(0,255,65,0.6);
+  padding: 6px 16px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.history-bar button:hover {
+  color: #00ff41;
+  border-color: #00ff41;
 }
 
 .chat-input input {
@@ -188,4 +225,119 @@ body {
     height: 100vh;
     border-radius: 0;
   }
+}
+
+.copy-btn {
+  background: transparent;
+  border: none;
+  color: rgba(0,255,65,0.35);
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.copy-btn:hover {
+  color: #00ff41;
+}
+
+.copy-btn.copiado {
+  color: #00ff41;
+}
+
+.msg-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.msg-action {
+  background: transparent;
+  border: none;
+  color: rgba(0,255,65,0.35);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.msg-action:hover {
+  color: #00ff41;
+}
+
+.msg-action.copiado {
+  color: #00ff41;
+}
+
+.version-selector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.version-arrow {
+  color: rgba(0,255,65,0.5);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: color 0.2s;
+  user-select: none;
+}
+
+.version-arrow:hover {
+  color: #00ff41;
+}
+
+.version-count {
+  color: rgba(0,255,65,0.45);
+  font-size: 0.75rem;
+}
+
+.message.bot .message-content strong {
+  color: #00ff41;
+}
+
+.message.bot .message-content em {
+  color: #7aff7a;
+}
+
+.message.bot .message-content code {
+  background: #0a0a0a;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: monospace;
+  color: #00ff41;
+}
+
+.message.bot .message-content h1,
+.message.bot .message-content h2,
+.message.bot .message-content h3 {
+  color: #00ff41;
+  margin: 8px 0 4px 0;
+}
+
+.message.bot .message-content h1 { font-size: 1.2rem; }
+.message.bot .message-content h2 { font-size: 1.1rem; }
+.message.bot .message-content h3 { font-size: 1rem; }
+
+.message.bot .message-content ul,
+.message.bot .message-content ol {
+  margin: 8px 0;
+  padding-left: 20px;
+}
+
+.message.bot .message-content li {
+  margin: 4px 0;
+}
+
+.message.bot .message-content strong {
+  color: #00ff41;
+}
+
+.message-countdown {
+  margin-top: 6px;
+  font-size: 0.8rem;
+  color: rgba(0,255,65,0.6);
+}
+
+.message.user {
+  align-self: flex-end;
+  align-items: flex-end;
 }
