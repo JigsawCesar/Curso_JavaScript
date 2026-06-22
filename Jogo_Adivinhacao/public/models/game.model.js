@@ -37,6 +37,10 @@ const GameModel = {
             return { tipo: 'erro', mensagem: 'Digite um número válido entre 1 e 100!' };
         }
 
+        if (this.palpites.includes(palpite)) {
+            return { tipo: 'erro', mensagem: 'Esse número já foi digitado!\nTente outro.' };
+        }
+
         // Incrementa o contador de tentativas
         this.tentativas++;
 
@@ -47,17 +51,17 @@ const GameModel = {
         if (palpite === this.numeroSecreto) {
             return {
                 tipo: 'acerto',
-                mensagem: `Parabéns! Você acertou em ${this.tentativas} tentativa(s)!`,
+                mensagem: `🎉Parabéns!🎉\nVocê acertou em ${this.tentativas} tentativa${this.tentativas === 1 ? '' : 's'}!`,
                 tentativas: this.tentativas
             };
         }
 
         // Verifica se foi menor ou maior
         if (palpite < this.numeroSecreto) {
-            return { tipo: 'baixo', mensagem: 'Muito baixo! Tente um número maior.' };
+            return { tipo: 'baixo', mensagem: 'Muito baixo!\nTente um número maior' };
         }
 
-        return { tipo: 'alto', mensagem: 'Muito alto! Tente um número menor.' };
+        return { tipo: 'alto', mensagem: 'Muito alto!\nTente um número menor' };
     },
 
     // --- Verifica e atualiza o recorde ---
