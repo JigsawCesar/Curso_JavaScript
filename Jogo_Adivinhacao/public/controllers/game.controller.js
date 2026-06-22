@@ -28,15 +28,15 @@ const verificarPalpite = () => {
 
     // Se acertou, finaliza o jogo
     if (resultado.tipo === 'acerto') {
-        resultado.mensagem += ' 🎉';
+        const novoRecorde = GameModel.verificarRecorde();
+
+        if (novoRecorde) {
+            resultado.mensagem += '\nNovo recorde! 🏆';
+            GameView.spanRecorde.textContent = GameModel.recorde;
+        }
+
         GameView.mostrarResultado(resultado);
         GameView.finalizar();
-
-        const novoRecorde = GameModel.verificarRecorde();
-        if (novoRecorde) {
-            GameView.spanRecorde.textContent = GameModel.recorde;
-            GameView.resultado.textContent += '\nNovo recorde! 🏆';
-        }
     } else {
         resultado.mensagem += resultado.tipo === 'baixo' ? ' ⬆️' : ' ⬇️';
         GameView.mostrarResultado(resultado);
@@ -49,10 +49,16 @@ const verificarPalpite = () => {
 const reiniciarJogo = () => {
     GameModel.iniciar();
     GameView.reiniciar();
+
+    const recordeSalvo = localStorage.getItem('recorde');
+    GameModel.recorde = recordeSalvo ? parseInt(recordeSalvo) : null;
+    GameView.mostrarRecorde(GameModel.recorde);
 };
 
 // --- Inicialização do jogo ---
 const iniciar = () => {
+    localStorage.removeItem('recorde');
+    GameModel.recorde = null;
     GameModel.iniciar();
     GameView.mostrarRecorde(GameModel.recorde);
 
