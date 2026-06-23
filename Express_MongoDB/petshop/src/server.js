@@ -1,93 +1,22 @@
-import express from "express";
 import dotenv from "dotenv";
-import Agendamento from "./models/agendamento.js";
-import conectarDB from "./db.js";
+import app from "./app.js";
+import conectarDB from "./config/db.js"
 
 dotenv.config({path: "../.env"});
-const app = express();
 const PORT = process.env.PORT;
-conectarDB();
 
-app.use(express.json());
+try {
+  conectarDB();
 
-app.get("/", (req, res) => {
-  res.json({ mensagem: "API do Petshop está no ar!" });
-});
+  app.listen(PORT, () => {
+    console.log(`Conectado com a porta ${PORT} com sucesso!`);
+  });
+} catch (error) {
+  console.log(`Erro ao iniciar a aplicação: ${error.message}`);
+}
 
-app.post("/agendamentos", async (req, res) => {
-  try {
-    const { nomePet, especie, nomeDono, telefoneDono, servico, data } = req.body;
 
-    let valor = 0;
-    if (especie == "Cão") {
-      switch (servico) {
-        case "Banho":
-          valor = 50;
-          break;
-        case "Tosa":
-          valor = 60;
-          break;
-        case "Banho e Tosa":
-          valor = 100;
-          break;
-        default:
-          console.log("Serviço inválido!");
-          break;
-      }
-    }
-
-    if (especie == "Gato") {
-      switch (servico) {
-        case "Banho":
-          valor = 60;
-          break;
-        case "Tosa":
-          valor = 70;
-          break;
-        case "Banho e Tosa":
-          valor = 110;
-          break;
-        default:
-          console.log("Serviço inválido!");
-          break;
-      }
-    }
-
-    if (especie == "Outro") {
-      switch (servico) {
-        case "Banho":
-          valor = 40;
-          break;
-        case "Tosa":
-          valor = 50;
-          break;
-        case "Banho e Tosa":
-          valor = 80;
-          break;
-        default:
-          console.log("Serviço inválido!");
-          break;
-      }
-    }
-
-    const novoAgendamento = new Agendamento({
-      nomePet,
-      especie,
-      nomeDono,
-      telefoneDono,
-      servico,
-      data,
-      valor,
-    });
-
-    await novoAgendamento.save();
-
-    res.status(201).json({ mensagem: "Agendamento criado com sucesso!", agendamento: novoAgendamento });
-  } catch (erro) {
-    res.status(400).json({ mensagem: `Erro ao criar o agendamento: ${erro.message}` });
-  }
-});
-
+/*
 app.get(("/agendamentos"), async (req, res) => {
   try {
     const todosAgendamentos = await Agendamento.find();
@@ -143,8 +72,4 @@ app.delete(("/agendamentos/:id"), async (req, res) => {
     res.status(500).json({mensagem: `Erro do servidor: ${erro.message}`});
   }
 });
-
-app.listen(PORT, () => {
-  console.log(`Conectado com a porta ${PORT} com sucesso!`);
-});
-
+*/
