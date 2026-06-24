@@ -11,7 +11,7 @@ async function conectarBanco() {
   // Se a URI não existir, a aplicação não consegue conectar ao banco.
   // Por isso geramos um erro claro logo no início.
   if (!mongoUri) {
-    throw new Error("MONGO_URI não configurada no ambiente.");
+    throw new Error("=========================================\n| MONGO_URI não configurada no ambiente |\n=========================================");
   }
 
   // O mongoose.connect abre a conexão com o MongoDB.

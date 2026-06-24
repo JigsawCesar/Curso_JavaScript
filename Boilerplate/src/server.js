@@ -24,7 +24,8 @@ try {
   });
 } catch (error) {
   // Se a conexão ou a inicialização falhar, mostramos o erro no terminal.
-  console.error("Erro ao iniciar a aplicação:", error.message);
+  console.error("| Erro ao iniciar a aplicação:", error.message);
+  console.log("=========================================");
 
   // Encerramos o processo para não deixar a aplicação rodando sem banco.
   process.exit(1);
