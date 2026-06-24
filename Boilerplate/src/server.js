@@ -20,7 +20,7 @@ try {
 
   // Se a conexão deu certo, iniciamos o servidor HTTP.
   app.listen(PORT, () => {
-    console.log(`Servidor rodando na porta ${PORT}.`);
+    console.log(`| O servidor está rodando na porta ${PORT} |\n=========================================`);
   });
 } catch (error) {
   // Se a conexão ou a inicialização falhar, mostramos o erro no terminal.
