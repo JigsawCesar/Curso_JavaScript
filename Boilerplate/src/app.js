@@ -31,7 +31,7 @@ app.use("/api/auth", authRoutes);
 
 // Todas as rot
 // as de usuário começam com /api/usuarios.
-//app.use("/api/usuarios", usuarioRoutes);
+app.use("/api/usuarios", usuarioRoutes);
 
 // Se nenhuma rota acima responder, esta função será executada.
 // Ela cria um erro 404 e envia para o middleware de erro.
