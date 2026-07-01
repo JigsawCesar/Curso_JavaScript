@@ -9,10 +9,8 @@ services:
     envVars:
       - key: NODE_ENV
         value: "production"
-
       - key: MONGO_URI
-        sync: false
-      
+        sync: false      
 #      - key: JWT_SECRET
 #        generateValue: true
       
